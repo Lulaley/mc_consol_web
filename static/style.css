@@ -1,9 +1,23 @@
 /* style.css */
+html {
+    background-image:
+        url('/static/reseau_top.png'),
+        url('/static/reseau_bottom.png');
+    background-color: #0E2A47; /* Couleur de fond */
+    background-repeat: no-repeat, no-repeat; /* Assurez-vous que les images ne se répètent pas */
+    background-position: top left, bottom right;
+    margin: 10px;
+    height: 97%;
+}
+
 body {
-    background-color: #0E2A47;
     font-family: Arial, sans-serif; /* C'est une police de base pour une lisibilité améliorée, vous pouvez la changer si vous le souhaitez */
     color: #ffffff; /* Couleur de texte blanche pour une meilleure lisibilité sur le fond sombre */
     text-align: center; /* Centre le contenu par défaut */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .python_web, .ttyd_consol, .information {
@@ -13,10 +27,6 @@ body {
     margin: 20px 0;
     position: relative;
     height: 35px;
-    width: 200px;
-}
-
-.information {
     width: 400px;
 }
 
@@ -25,6 +35,25 @@ body {
     flex-direction: column; 
     align-items: center;
     text-align: center;
+}
+
+.hover-text {
+    display: none;
+    position: absolute;
+    top: -25px;  /* Ajustez selon vos besoins */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;  /* Couleur de fond de la tooltip */
+    color: #0E2A47;  /* Couleur du texte de la tooltip */
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.python_web:hover .hover-text,
+.ttyd_consol:hover .hover-text {
+    display: block;
 }
 
 .status-actions {

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class="background"></div>
     <h2>Gestion des serveurs</h2>
     <div class="information">
         {% if message %}
@@ -13,6 +14,7 @@
     <div class="python_web">
         <div class="status-actions">
             <div class="status-indicator {{status_http}}"></div>
+            <span class="hover-text">Python Web</span>
             <img src="{{ url_for('static', filename='python_web.png') }}" alt="Image for Python Web" width="50px" height="50px">
             <span class="status {{ 'status-green' if http_button_state == 'disabled' else 'status-red' if http_button_state == 'enable' else 'status-gray' }}"></span>
             {% if http_button_state == "enable" %}
@@ -26,6 +28,8 @@
     <div class="ttyd_consol">
         <div class="status-actions">
             <div class="status-indicator {{status_ttyd}}"></div>
+
+            <span class="hover-text">TTYD Console</span>
             <img src="{{ url_for('static', filename='ttyd_consol.png') }}" alt="Image for TTYD Console" width="50px" height="50px">
             <span class="status {{ 'status-green' if ttyd_button_state == 'disabled' else 'status-red' if ttyd_button_state == 'enable' else 'status-gray' }}"></span>
             {% if ttyd_button_state == "enable" %}
