@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Utilisation de Screen</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Bouton de redirection -->
+<a href="index.html">
+    <button>Home</button>
+</a>
+<br>
+<h2>Commandes de base pour Screen</h2>
+
+<table>
+    <tr>
+        <th>Action</th>
+        <th>Commande</th>
+    </tr>
+    <tr>
+        <td>Démarrer une nouvelle session screen</td>
+        <td><code>screen</code></td>
+    </tr>
+    <tr>
+        <td>Démarrer une session avec un nom spécifique</td>
+        <td><code>screen -S session_name</code></td>
+    </tr>
+    <tr>
+        <td>Lister toutes les sessions screen</td>
+        <td><code>screen -ls</code></td>
+    </tr>
+    <tr>
+        <td>Attacher à une session existante</td>
+        <td><code>screen -r [session_id]</code></td>
+    </tr>
+    <tr>
+        <td>Détacher d'une session screen</td>
+        <td><code>Ctrl-a</code> puis <code>d</code></td>
+    </tr>
+    <tr>
+        <td>Fermer une session screen</td>
+        <td><code>exit</code> ou <code>Ctrl-d</code></td>
+    </tr>
+    <tr>
+        <td>Créer une nouvelle fenêtre à l'intérieur d'une session screen</td>
+        <td><code>Ctrl-a</code> puis <code>c</code></td>
+    </tr>
+    <tr>
+        <td>Naviguer entre les fenêtres</td>
+        <td><code>Ctrl-a</code> puis <code>n</code> (prochaine) / <code>Ctrl-a</code> puis <code>p</code> (précédente)</td>
+    </tr>
+    <tr>
+        <td>Diviser la vue actuelle</td>
+        <td>Horizontalement : <code>Ctrl-a</code> puis <code>|</code> <br> Verticalement : <code>Ctrl-a</code> puis <code>S</code></td>
+    </tr>
+    <tr>
+        <td>Fermer une session screen mais la laisser tourner en arrière-plan</td>
+        <td><code>Ctrl-a</code> puis <code>d</code></td>
+    </tr>
+    <tr>
+        <td>Fermer une session scren depuis une commande sans se tattacher à la session</td>
+        <td><code>screen -XS</code> session-id <code> quit</code></td>
+    </tr>
+</table>
+
+</body>
+</html>

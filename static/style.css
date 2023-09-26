@@ -1,0 +1,65 @@
+/* style.css */
+body {
+    background-color: #0E2A47;
+    font-family: Arial, sans-serif; /* C'est une police de base pour une lisibilité améliorée, vous pouvez la changer si vous le souhaitez */
+    color: #ffffff; /* Couleur de texte blanche pour une meilleure lisibilité sur le fond sombre */
+    text-align: center; /* Centre le contenu par défaut */
+}
+
+.python_web, .ttyd_consol, .information {
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+    height: 35px;
+    width: 200px;
+}
+
+.information {
+    width: 400px;
+}
+
+.python_web, .ttyd_consol, .information {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+}
+
+.status-actions {
+    display: flex;
+    align-items: center; 
+    gap: 10px; // Pour donner un peu d'espace entre la case de couleur, l'image et les boutons
+}
+
+
+.status {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.status-green {
+    background-color: green;
+}
+
+.status-red {
+    background-color: red;
+}
+
+.status-gray {
+    background-color: gray;
+}
+
+.button-image {
+    cursor: pointer;
+    margin: 5px;
+    transition: opacity 0.2s;
+}
+
+.button-image:hover {
+    opacity: 0.8;
+}
