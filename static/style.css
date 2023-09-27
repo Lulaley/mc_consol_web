@@ -23,10 +23,10 @@ body {
 .python_web, .ttyd_consol, .information {
     border: 2px solid white;
     border-radius: 15px;
-    padding: 20px;
     margin: 20px 0;
+    padding: 2px;
     position: relative;
-    height: 35px;
+    height: 70px;
     width: 400px;
 }
 
