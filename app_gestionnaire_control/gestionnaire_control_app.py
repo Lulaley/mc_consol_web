@@ -11,6 +11,7 @@ def screen_session_exists(session_name):
     except subprocess.CalledProcessError:
         return False
 
+
 gestionnaire_control_bp = Blueprint('gestionnaire_control', __name__)
 
 @gestionnaire_control_bp.route('/')
@@ -21,26 +22,27 @@ def index():
     return render_template('index.html', http_button_state=http_button_state, ttyd_button_state=ttyd_button_state, message=message)
 
 
-@app.route("/start_http_server")
+@gestionnaire_control_bp.route("/start_http_server")
 def start_http_server():
     if not screen_session_exists("http_server"):
         os.system("screen -S http_server -dm python3 -m http.server 8000")
         message = "Serveur HTTP démarré!"
     else:
         message = "Serveur HTTP déjà en cours d'exécution!"
-    return redirect(url_for('index', message=message))
+    return redirect(url_for('gestionnaire_control.index', message=message))
 
 
-@app.route("/stop_http_server")
+@gestionnaire_control_bp.route("/stop_http_server")
 def stop_http_server():
     if screen_session_exists("http_server"):
         os.system("screen -X -S http_server quit")
         message = "Serveur HTTP arrêté!"
     else:
         message = "Serveur 'HTTP' non trouvé!"
-    return redirect(url_for('index', message=message))
+    return redirect(url_for('gestionnaire_control.index', message=message))
 
-@app.route("/start_ttyd_server")
+
+@gestionnaire_control_bp.route("/start_ttyd_server")
 def start_ttyd_server():
     if not screen_session_exists("ttyd_server"):
         os.system("screen -S ttyd_server -dm ttyd --allowed-origins='http://127.0.0.1:5000' -p 8080 screen -S serveur")
@@ -48,14 +50,18 @@ def start_ttyd_server():
     else:
         os.system("screen -R serveur")
         message = "Serveur 'TTYD' déjà en cours d'exécution!"
-    return redirect(url_for('index', message=message))
+    return redirect(url_for('gestionnaire_control.index', message=message))
 
-@app.route("/stop_ttyd_server")
+
+@gestionnaire_control_bp.route("/stop_ttyd_server")
 def stop_ttyd_server():
     if screen_session_exists("ttyd_server"):
         os.system("screen -X -S ttyd_server quit")
         message = "Serveur TTYD arrêté!"
     else:
         message = "Serveur TTYD non trouvé!"
-    return redirect(url_for('index', message=message))
+    return redirect(url_for('gestionnaire_control.index', message=message))
+
+if __name__ == '__main__':
+    app.run(debug=True)
     

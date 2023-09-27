@@ -22,9 +22,9 @@
             <img src="{{ url_for('static', filename='python_web.png') }}" alt="Image for Python Web" width="70px" height="70px">
             <span class="status {{ 'status-green' if http_button_state == 'disabled' else 'status-red' if http_button_state == 'enable' else 'status-gray' }}"></span>
             {% if http_button_state == "enable" %}
-                <img src="{{ url_for('static', filename='bouton-marche.png') }}" alt="Démarrer le serveur HTTP" class="button-image" onclick="window.location.href='/start_http_server'" width="45px" height="45px">
+                <img src="{{ url_for('static', filename='bouton-marche.png') }}" alt="Démarrer le serveur HTTP" class="button-image" onclick="window.location.href='{{ url_for('gestionnaire_control.start_http_server') }}'" width="45px" height="45px">
             {% else %}
-                <img src="{{ url_for('static', filename='bouton-arret.png') }}" alt="Arrêter le serveur HTTP" class="button-image" onclick="window.location.href='/stop_http_server'" width="45px" height="45px">
+                <img src="{{ url_for('static', filename='bouton-arret.png') }}" alt="Arrêter le serveur HTTP" class="button-image" onclick="window.location.href='{{ url_for('gestionnaire_control.stop_http_server') }}'" width="45px" height="45px">
             {% endif %}
         </div>
     </div>
@@ -37,9 +37,9 @@
             <img src="{{ url_for('static', filename='ttyd_consol.png') }}" alt="Image for TTYD Console" width="70px" height="70px">
             <span class="status {{ 'status-green' if ttyd_button_state == 'disabled' else 'status-red' if ttyd_button_state == 'enable' else 'status-gray' }}"></span>
             {% if ttyd_button_state == "enable" %}
-                <img src="{{ url_for('static', filename='bouton-marche.png') }}" alt="Démarrer le serveur TTYD" class="button-image" onclick="window.location.href='/start_ttyd_server'" width="45px" height="45px">
+                <img src="{{ url_for('static', filename='bouton-marche.png') }}" alt="Démarrer le serveur TTYD" class="button-image" onclick="window.location.href='{{ url_for('gestionnaire_control.start_ttyd_server') }}'" width="45px" height="45px">
             {% else %}
-                <img src="{{ url_for('static', filename='bouton-arret.png') }}" alt="Arrêter le serveur TTYD" class="button-image" onclick="window.location.href='/stop_ttyd_server'" width="45px" height="45px">
+                <img src="{{ url_for('static', filename='bouton-arret.png') }}" alt="Arrêter le serveur TTYD" class="button-image" onclick="window.location.href='{{ url_for('gestionnaire_control.stop_ttyd_server') }}'" width="45px" height="45px">
             {% endif %}
         </div>
     </div>

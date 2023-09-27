@@ -9,6 +9,7 @@ app.register_blueprint(gestionnaire_control_bp, url_prefix='/gestionnaire_contro
 app.register_blueprint(java_control_bp, url_prefix='/java_control')
 app.register_blueprint(minecraft_control_bp, url_prefix='/minecraft_control')
 
+
 @app.route('/')
 def menu():
     apps = [
@@ -17,6 +18,7 @@ def menu():
         {'name': 'Minecraft Control', 'url': '/minecraft_control'}
     ]
     return render_template('menu.html', apps=apps)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
