@@ -7,7 +7,13 @@
     <h1>Sélectionnez la version de Minecraft</h1>
 </div>
 
-<form action="/set_java_version" method="post">
+<div>
+    <strong id="java-version-display">Java OpenJDK {{ java_version }} actuellement utilisé</strong>
+</div>
+
+<br>
+
+<form action="{{ url_for('java_control.set_java_version') }}" method="post">
     <label for="minecraft_version">Version de Minecraft:</label>
     <select name="minecraft_version" id="minecraft_version">
         {% for version in minecraft_versions %}
@@ -17,6 +23,21 @@
     <br><br>
     <input type="submit" value="Configurer la version de Java">
 </form>
+
+<script>
+    var newJavaVersion = data.java_version;
+
+    $.post("/set_java_version", $(this).serialize(), function(data) {
+    if (data.error) {
+        alert(data.error);
+    } else {
+        // Mettre à jour le texte d'affichage de la version
+        var newJavaVersion = data.java_version;
+        $("#java-version-display").text("Java OpenJDK " + newJavaVersion + " actuellement utilisé");
+    }
+});
+
+</script>
 
 
 {% endblock %}

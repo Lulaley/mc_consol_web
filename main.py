@@ -2,12 +2,18 @@ from flask import Flask, render_template
 from app_gestionnaire_control.gestionnaire_control_app import gestionnaire_control_bp
 from app_java_control.java_control_app import java_control_bp
 from app_minecraft_control.minecraft_control_app import minecraft_control_bp
+import os
 
 app = Flask(__name__)
 
 app.register_blueprint(gestionnaire_control_bp, url_prefix='/gestionnaire_control')
 app.register_blueprint(java_control_bp, url_prefix='/java_control')
 app.register_blueprint(minecraft_control_bp, url_prefix='/minecraft_control')
+
+
+@app.route('/user')
+def check_user():
+    return os.getlogin()
 
 
 @app.route('/')
