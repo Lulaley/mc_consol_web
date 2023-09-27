@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, Blueprint
 import os
 import subprocess
 
@@ -10,8 +10,10 @@ def screen_session_exists(session_name):
         return session_name in output
     except subprocess.CalledProcessError:
         return False
-        
-@app.route("/")
+
+gestionnaire_control_bp = Blueprint('gestionnaire_control', __name__)
+
+@gestionnaire_control_bp.route('/')
 def index():
     http_button_state = "disabled" if screen_session_exists("http_server") else "enable"
     ttyd_button_state = "disabled" if screen_session_exists("ttyd_server") else "enable"
@@ -56,7 +58,4 @@ def stop_ttyd_server():
     else:
         message = "Serveur TTYD non trouvé!"
     return redirect(url_for('index', message=message))
-
-if __name__ == "__main__":
-    app.run(debug=True)
     

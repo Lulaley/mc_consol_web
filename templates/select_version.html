@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Sélectionnez la version de Minecraft</h2>
+
+<form action="/set_java_version" method="post">
+    <label for="minecraft_version">Version de Minecraft:</label>
+    <select name="minecraft_version" id="minecraft_version">
+        {% for version in minecraft_versions %}
+            <option value="{{ version }}">{{ version }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <input type="submit" value="Configurer la version de Java">
+</form>
+
+
+{% endblock %}
