@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Blueprint
+from flask import Flask, request, jsonify, Blueprint, render_template
 import mcrcon
 
 app = Flask(__name__)
@@ -11,4 +11,12 @@ def send_command():
     with mcrcon.MCRcon("localhost", "your_password") as mcr:
         response = mcr.command(command)
         return jsonify({"response": response})
-    
+
+
+@minecraft_control_bp.route('/')
+def menu():
+    return render_template('minecraft.html', apps=app)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
