@@ -2,7 +2,10 @@
 
 {% block content %}
 
-<h2>Sélectionnez la version de Minecraft</h2>
+<div class="header">
+    <img src="{{ url_for('static', filename='home.png') }}" alt="Home/Acceuil" class="home-button" onclick="window.location.href='/'" width="45px" height="45px">
+    <h1>Sélectionnez la version de Minecraft</h1>
+</div>
 
 <form action="/set_java_version" method="post">
     <label for="minecraft_version">Version de Minecraft:</label>
