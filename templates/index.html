@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="background"></div>
-    <h2>Gestion des serveurs</h2>
+    <div class="header">
+    <img src="{{ url_for('static', filename='home.png') }}" alt="Home/Acceuil" class="home-button" onclick="window.location.href='/'" width="45px" height="45px">
+    <h1>Gestion des serveurs</h1>
+    </div>
+
+
     <div class="information">
         {% if message %}
             <p id=message>Information : {{ message }}</p>

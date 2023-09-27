@@ -20,6 +20,17 @@ body {
     align-items: center;
 }
 
+.header {
+    display: flex;
+    align-items: center; /* Centrer verticalement le titre et le bouton */
+    justify-content: flex-start; /* Aligner les éléments au début (à gauche) du conteneur */
+    gap: 20px; /* Espace entre le bouton et le titre */
+}
+
+.button-home.hover {
+    opacity: 0.8;
+}
+
 .python_web, .ttyd_consol, .information {
     border: 2px solid white;
     border-radius: 15px;
@@ -43,8 +54,8 @@ body {
     top: -25px;  /* Ajustez selon vos besoins */
     left: 50%;
     transform: translateX(-50%);
-    background-color: #ffffff;  /* Couleur de fond de la tooltip */
-    color: #0E2A47;  /* Couleur du texte de la tooltip */
+    background-color: #007BFF;  /* Couleur de fond de la tooltip */
+    color: white;  /* Couleur du texte de la tooltip */
     border-radius: 5px;
     padding: 3px 5px;
     font-size: 12px;
@@ -108,6 +119,24 @@ body {
 }
 
 .button-link:hover {
+    background-color: #0056b3;
+}
+
+.button-home {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.2s;
+}
+
+.button-home:hover {
     background-color: #0056b3;
 }
 
