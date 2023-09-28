@@ -117,10 +117,17 @@ body {
     text-decoration: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 10px;
     transition: background-color 0.2s;
     width: 250px;
     font-size: 20px;
+    margin: 10px;
+}
+
+.button-link img {
+    width: 230px; /* Ajuster selon le souhait, mais garder une certaine marge par rapport à la largeur du bouton */
+    height: auto; /* Conserve le ratio de l'image */
+    vertical-align: middle; /* Centre l'image verticalement par rapport au texte du bouton */
+    padding: 10px 20px;
 }
 
 .button-link:hover {
