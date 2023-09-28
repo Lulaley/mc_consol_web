@@ -4,9 +4,19 @@
     <h1>Choisissez une application :</h1>
     
     {% for app in apps %}
-        <form action="{{ app['url'] }}" method="get">
-            <button type="submit" class="button-link">{{ app['url'] }}</button>
-        </form>
-    {% endfor %}
+    <form action="{{ app['url'] }}" method="get">
+        <button type="submit" class="button-link">
+            {% if app['url'][1:] == 'gestionnaire_control' %}
+                Gestion des serveurs
+            {% elif app['url'][1:] == 'java_control' %}
+                Version Minecraft
+            {% elif app['url'][1:] == 'minecraft_control' %}
+                Minecraft Panel
+            {% else %}
+                {{ app['url'][1:] }}  {# Default value if none of the conditions match. You can change or remove this. #}
+            {% endif %}
+        </button>
+    </form>
+{% endfor %}
 
 {% endblock %}

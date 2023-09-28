@@ -18,6 +18,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
 }
 
 .header {
@@ -39,6 +40,7 @@ body {
     position: relative;
     height: 70px;
     width: 400px;
+    font-size: 20px;
 }
 
 .python_web, .ttyd_consol, .information {
@@ -60,6 +62,7 @@ body {
     padding: 3px 5px;
     font-size: 12px;
     white-space: nowrap;
+    font-size: 20px;
 }
 
 .python_web:hover .hover-text,
@@ -116,6 +119,8 @@ body {
     cursor: pointer;
     margin: 10px;
     transition: background-color 0.2s;
+    width: 250px;
+    font-size: 20px;
 }
 
 .button-link:hover {
@@ -149,9 +154,41 @@ body {
 }
 
 select, input[type="submit"] {
-    background-color: #3498db;
     color: white;
     padding: 10px 10px;
     border: none;
     cursor: pointer;
+}
+
+select {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.2s;
+    width: 120px;
+    font-size: 20px;
+}
+
+
+input {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.2s;
+    width: 300px;
+    font-size: 20px;
 }
