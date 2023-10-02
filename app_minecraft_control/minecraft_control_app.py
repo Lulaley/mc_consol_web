@@ -1,22 +1,18 @@
-from flask import Flask, request, jsonify, Blueprint, render_template
-import mcrcon
+from flask import Flask, request, jsonify, Blueprint, render_template, redirect
+from mcrcon import MCRcon
+import threading
+import signal
+import os
 
 app = Flask(__name__)
 
 minecraft_control_bp = Blueprint('minecraft_control', __name__)
 
-@minecraft_control_bp.route('/send_command', methods=['POST'])
-def send_command():
-    command = request.json.get('command')
-    with mcrcon.MCRcon("localhost", "your_password") as mcr:
-        response = mcr.command(command)
-        return jsonify({"response": response})
-
 
 @minecraft_control_bp.route('/')
-def menu():
-    return render_template('minecraft.html', apps=app)
+def redirect_to_amp():
+    return redirect("http://192.168.160.5:8080", code=302)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, use_reloader=False)
