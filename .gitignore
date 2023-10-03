@@ -1,1 +1,6 @@
 *.pyc
+*.jar
+*.gz
+*.log
+eula.txt
+*.properties
